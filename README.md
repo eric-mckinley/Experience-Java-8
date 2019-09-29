@@ -11,4 +11,4 @@ $ mvn clean test
 
 ### Skipped
 
-Not bother with datetime tests, so marked with **@org.junit.Ignore**
+Not bothered with datetime tests, so marked with **@org.junit.Ignore**
