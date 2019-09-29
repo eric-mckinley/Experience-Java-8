@@ -37,26 +37,26 @@ public class DefaultMethodsTest {
     public void shouldThrowNotImplementedException(){
         // add an optional method to the shape method
         Triangle triangle = new Triangle();
-        // triangle.notImplementedMethod();
+         triangle.notImplemented();
     }
 
     @Test
     public void shouldReturnNameForTriangle(){
         Shape shape = new Triangle();
-        assertThat("fill in right name here",equalTo(shape.getName()));
+        assertThat("Triangle",equalTo(shape.getName()));
     }
 
     @Test
     public void shouldReturnNameForRectangle(){
         Shape shape = new Rectangle();
-        assertThat("fill in right name here",equalTo(shape.getName()));
+        assertThat("Abstract Shape",equalTo(shape.getName()));
     }
 
     @Test
     public void shouldProvideName(){
         // make rectangle implement NamedObject
-        NamedObject namedObject = null; // = new Rectangle()
-        assertThat("fill in right name here",equalTo(namedObject.getName()));
+        NamedObject namedObject = new Rectangle();
+        assertThat("Abstract Shape",equalTo(namedObject.getName()));
     }
 
 

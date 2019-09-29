@@ -11,9 +11,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class StreamTest {
 
@@ -84,7 +82,7 @@ public class StreamTest {
     public void shouldReturnDistinctLetters() {
         List<String> names = asList("Homer Simpson", "Marge Simpson", "Bart Simpson", "Kent Brockman");
         List<String> result = Stream8.getDistinctLetters(names);
-        assertThat(result, equalTo(Arrays.asList("H", "o", "m", "e", "r", " " , "S", "i", "p", "s", "n", "M", "a", "g", "B", "t", "K", "c", "k")));
+        assertThat(result, equalTo(Arrays.asList("H", "o", "m", "e", "r", " ", "S", "i", "p", "s", "n", "M", "a", "g", "B", "t", "K", "c", "k")));
     }
 
     @Test
@@ -98,18 +96,18 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldPerformCalculations(){
+    public void shouldPerformCalculations() {
         List<User> users = User.getUsersWithAge(10, 20, 30);
         assertThat(Stream8.getMinAge(users), equalTo(10));
         assertThat(Stream8.getMaxAge(users), equalTo(30));
-        assertThat(Stream8.getAverageAge(users), equalTo((double)(10+20+30)/3));
+        assertThat(Stream8.getAverageAge(users), equalTo((double) (10 + 20 + 30) / 3));
     }
 
     @Test
     public void shouldPartitionByGender() {
         User homer = new User("Homer", true);
         User bart = new User("Bart", true);
-        User maggie = new User("Maggie",false);
+        User maggie = new User("Maggie", false);
         User lisa = new User("Lisa", false);
         List<User> input = asList(homer, bart, maggie, lisa);
         Map<Boolean, List<User>> result = Stream8.partionUsersByGender(input);
@@ -121,7 +119,7 @@ public class StreamTest {
     public void shouldGroupByAge() {
         User homer = new User("Homer", 50);
         User bart = new User("Bart", 12);
-        User maggie = new User("Maggie",2);
+        User maggie = new User("Maggie", 2);
         User lisa = new User("Lisa", 8);
         List<User> input = asList(homer, bart, maggie, lisa);
         Map<Integer, List<User>> result = Stream8.groupByAge(input);
@@ -135,7 +133,7 @@ public class StreamTest {
     public void shouldGroupByGenderAndAge() {
         User homer = new User("Homer", 50, true);
         User bart = new User("Bart", 12, true);
-        User maggie = new User("Maggie",2, false);
+        User maggie = new User("Maggie", 2, false);
         User lisa = new User("Lisa", 8, false);
         List<User> input = asList(homer, bart, maggie, lisa);
         Map<Boolean, Map<Integer, List<User>>> result = Stream8.groupByGenderAndAge(input);
@@ -149,7 +147,7 @@ public class StreamTest {
     public void shouldCountGender() {
         User homer = new User("Homer", 50, true);
         User bart = new User("Bart", 12, true);
-        User maggie = new User("Maggie",2, false);
+        User maggie = new User("Maggie", 2, false);
         User lisa = new User("Lisa", 8, false);
         List<User> input = asList(homer, bart, maggie, lisa);
         Map<Boolean, Long> result = Stream8.countGender(input);
@@ -158,22 +156,22 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldMatchAge(){
+    public void shouldMatchAge() {
         List<User> users = User.getUsersWithAge(10, 20, 30);
         assertTrue(Stream8.anyMatch(users, 10));
     }
 
     @Test
-    public void shouldNoneMatchAge(){
+    public void shouldNoneMatchAge() {
         List<User> users = User.getUsersWithAge(10, 20, 30);
         assertTrue(Stream8.noneMatch(users, 40));
     }
 
     @Test
-    public void shouldFindAnyUser(){
+    public void shouldFindAnyUser() {
         User homer = new User("Homer", true);
         User bart = new User("Bart", true);
-        User maggie = new User("Maggie",false);
+        User maggie = new User("Maggie", false);
         User lisa = new User("Lisa", true);
         List<User> users = asList(homer, bart, maggie, lisa);
         Optional<User> user = Stream8.findAny(users, "Homer");
@@ -181,10 +179,10 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldSortByAge(){
+    public void shouldSortByAge() {
         User homer = new User("Homer", 50);
         User bart = new User("Bart", 12);
-        User maggie = new User("Maggie",2);
+        User maggie = new User("Maggie", 2);
         User lisa = new User("Lisa", 8);
         List<User> users = asList(homer, bart, maggie, lisa);
         List<User> sorted = Stream8.sortByAge(users);
@@ -192,10 +190,10 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldFindOldest(){
+    public void shouldFindOldest() {
         User homer = new User("Homer", 50);
         User bart = new User("Bart", 12);
-        User maggie = new User("Maggie",2);
+        User maggie = new User("Maggie", 2);
         User lisa = new User("Lisa", 8);
         List<User> users = asList(homer, bart, maggie, lisa);
         User oldest = Stream8.findOldest(users);
@@ -203,32 +201,32 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldSumAgeAsInt(){
+    public void shouldSumAgeAsInt() {
         User homer = new User("Homer", 50);
         User bart = new User("Bart", 12);
-        User maggie = new User("Maggie",2);
+        User maggie = new User("Maggie", 2);
         User lisa = new User("Lisa", 8);
         List<User> users = asList(homer, bart, maggie, lisa);
         int sumAge = Stream8.sumAge(users);
-        assertThat(sumAge, equalTo(50+12+2+8));
+        assertThat(sumAge, equalTo(50 + 12 + 2 + 8));
     }
 
     @Test
-    public void shouldGenerateAgeSummaryStatistics(){
+    public void shouldGenerateAgeSummaryStatistics() {
         User homer = new User("Homer", 50);
         User bart = new User("Bart", 12);
-        User maggie = new User("Maggie",2);
+        User maggie = new User("Maggie", 2);
         User lisa = new User("Lisa", 8);
         List<User> users = asList(homer, bart, maggie, lisa);
         IntSummaryStatistics statistics = Stream8.ageSummaryStatistics(users);
-        assertThat(statistics.getAverage(), equalTo((double)(50+12+2+8)/4));
-        assertThat(statistics.getCount(),equalTo(4L));
-        assertThat(statistics.getMax(),equalTo(50));
-        assertThat(statistics.getMin(),equalTo(2));
+        assertThat(statistics.getAverage(), equalTo((double) (50 + 12 + 2 + 8) / 4));
+        assertThat(statistics.getCount(), equalTo(4L));
+        assertThat(statistics.getMax(), equalTo(50));
+        assertThat(statistics.getMin(), equalTo(2));
     }
 
     @Test
-    public void shouldConvertToBoxedStream(){
+    public void shouldConvertToBoxedStream() {
         List<Integer> numbers = asList(1, 2, 3);
         IntStream intStream = numbers.stream().mapToInt(value -> value);
         Stream<Integer> boxedStream = Stream8.getBoxedStream(intStream);
@@ -236,27 +234,28 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldBeEmptyStream(){
-        Stream<Integer> numberStream =null; //create empty stream
+    public void shouldBeEmptyStream() {
+        Stream<Integer> numberStream = Stream.empty();
         assertNotNull(numberStream);
     }
 
     @Test
-    public void shouldGenerateFirstPrimeNumbers(){
+    public void shouldGenerateFirstPrimeNumbers() {
         List<Integer> primeNumbers = Stream8.generateFirst10PrimeNumbers();
-        assertThat(primeNumbers, contains(2,3,5,7,11,13, 17,19, 23, 29));
+        assertThat(primeNumbers, contains(2, 3, 5, 7, 11, 13, 17, 19, 23, 29));
     }
 
     @Test
-    public void shouldGenerate10RandomNumbers(){
+    public void shouldGenerate10RandomNumbers() {
         List<Integer> randomNumbers = Stream8.generate10RandomNumbers();
-        assertTrue(randomNumbers.size()==10);
+        assertTrue(randomNumbers.size() == 10);
     }
 
     @Test
-    public void shouldCollectToString(){
+    public void shouldCollectToString() {
         String sample = "Working with Java8 Streams";
         String result = sample.chars().mapToObj(a -> ((char) a)).collect(new CharacterToStringCollector());
-        assertThat(sample,equalTo(result));
+        assertThat(sample, equalTo(result));
     }
+
 }

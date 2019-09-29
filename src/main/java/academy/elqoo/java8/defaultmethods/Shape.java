@@ -1,10 +1,9 @@
 package academy.elqoo.java8.defaultmethods;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 public interface Shape {
 
-    int getXPos();
-
-    int getYPos();
 
     void setXPos(int xPOs);
 
@@ -12,6 +11,18 @@ public interface Shape {
 
     default String getName(){
         return "";
+    }
+
+    default int getXPos(){
+        return 10;
+    }
+
+    default int getYPos(){
+        return 10;
+    }
+
+    default String notImplemented(){
+        throw new NotImplementedException();
     }
 
 

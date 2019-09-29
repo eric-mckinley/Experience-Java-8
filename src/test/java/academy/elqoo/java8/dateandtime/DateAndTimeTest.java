@@ -1,5 +1,6 @@
 package academy.elqoo.java8.dateandtime;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.*;
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
+@Ignore 
 public class DateAndTimeTest {
 
     @Test

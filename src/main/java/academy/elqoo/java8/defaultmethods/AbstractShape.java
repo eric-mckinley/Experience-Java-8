@@ -6,15 +6,6 @@ public class AbstractShape implements Shape {
 
     private int yPos = 0;
 
-    @Override
-    public int getXPos() {
-        return xPos;
-    }
-
-    @Override
-    public int getYPos() {
-        return yPos;
-    }
 
     @Override
     public void setXPos(int xPOs) {
@@ -30,4 +21,6 @@ public class AbstractShape implements Shape {
     public String getName() {
         return "Abstract Shape";
     }
+
+
 }

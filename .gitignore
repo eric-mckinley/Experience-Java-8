@@ -1,1 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
+x Created by .ignore support plugin (hsz.mobi)
+.idea/
+target/
+*.iml
